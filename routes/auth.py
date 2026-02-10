@@ -4,12 +4,10 @@ from db import db
 from model.list import ListModel, ListType, ListVisibility
 from model.user import UserModel
 from passlib.hash import pbkdf2_sha256
-from schemas.user import UserSchema
+from schemas.user import user_schema
 from werkzeug.exceptions import Conflict, BadRequest, Unauthorized
 
 blp = Blueprint('auth', __name__, url_prefix='/auth')
-
-user_schema = UserSchema()
 
 def normalise_email(email):
   return email.strip().lower()

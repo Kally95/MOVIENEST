@@ -6,4 +6,4 @@ class UserSchema(Schema):
   email = fields.Email(required=True)
   password = fields.Str(required=True, load_only=True) 
 
-
+user_schema = UserSchema()

@@ -1,8 +1,7 @@
-from http.client import HTTPException
 from flask import Flask, jsonify
+from flask_jwt_extended import JWTManager
 from errors import register_error_handlers
 from extensions import migrate
-from marshmallow import ValidationError
 from db import db
 from config import Config
 from routes.auth import blp as AuthBlueprint
@@ -15,7 +14,7 @@ def create_app(db_url = None):
     app.config["SQLALCHEMY_DATABASE_URI"] = db_url
     
   db.init_app(app)
-  
+  jwt = JWTManager(app)
   migrate.init_app(app, db)
   
   register_error_handlers(app)

@@ -1,5 +1,6 @@
-from sqlite3 import IntegrityError
+from sqlalchemy.exc import IntegrityError
 from flask import Blueprint, jsonify, request
+from flask_jwt_extended import create_access_token
 from db import db
 from model.list import ListModel, ListType, ListVisibility
 from model.user import UserModel
@@ -23,6 +24,10 @@ def registration():
   user_data = user_schema.load(req)
   
   email = normalise_email(user_data["email"])
+  
+  email_collision = UserModel.query.filter_by(email=email).first()
+  if email_collision:
+    raise Conflict("This email already exists")
   
   user = UserModel(
     email=email,
@@ -51,11 +56,13 @@ def registration():
     db.session.commit()
   except IntegrityError:
     db.session.rollback()
-    raise Conflict("Registration failed due to a uniqueness constraint")
+    raise Conflict("This email already exists")
 
-  return jsonify({"id": user.id, "email": user.email}), 201
+  access_token = create_access_token(identity=user.id)
+         
+  return jsonify({"id": user.id, "email": user.email, "access_token":access_token}), 201
   
-  
+
 @blp.route("/login", methods=["POST"])
 def login():
   req = request.get_json(silent=True)
@@ -74,5 +81,7 @@ def login():
   
   if not pbkdf2_sha256.verify(user_data["password"], user.password_hash):
     raise Unauthorized("Invalid email or password")
-          
-  return jsonify({"id": user.id, "email": user.email}), 200
+  
+  access_token = create_access_token(identity=user.id)
+         
+  return jsonify({"id": user.id, "email": user.email, "access_token":access_token}), 200

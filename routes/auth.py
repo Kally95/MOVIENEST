@@ -58,7 +58,7 @@ def registration():
     db.session.rollback()
     raise Conflict("This email already exists")
 
-  access_token = create_access_token(identity=user.id)
+  access_token = create_access_token(identity=str(user.id))
          
   return jsonify({"id": user.id, "email": user.email, "access_token":access_token}), 201
   
@@ -82,6 +82,6 @@ def login():
   if not pbkdf2_sha256.verify(user_data["password"], user.password_hash):
     raise Unauthorized("Invalid email or password")
   
-  access_token = create_access_token(identity=user.id)
+  access_token = create_access_token(identity=str(user.id))
          
   return jsonify({"id": user.id, "email": user.email, "access_token":access_token}), 200

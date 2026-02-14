@@ -10,6 +10,7 @@ class ListVisibility(Enum):
 class ListType(Enum):
   WATCHLIST = "watchlist"
   FAVOURITES = "favourites"
+  CUSTOM = "custom"
 
 class ListModel(db.Model):
   __tablename__ = "lists"
@@ -29,15 +30,15 @@ class ListModel(db.Model):
     index=True 
   )
   
-  list_type: Mapped[ListType | None] = mapped_column(
+  list_type: Mapped[ListType] = mapped_column(
     SQLEnum(ListType, name="list_type"),
-    nullable=True,
-    index=True
+    nullable=False,
+    default=ListType.CUSTOM,
+    index=True,
   )
-  
+
   __table_args__ = (
     db.UniqueConstraint("user_id", "name", name="uq_user_list_name"),
-    db.UniqueConstraint("user_id", "list_type", name="uq_user_list_type"),
   )
   
   def __repr__(self) -> str:

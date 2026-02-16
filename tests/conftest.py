@@ -22,8 +22,20 @@ def registered_user(client):
     "email": "test@test.com",
     "password": "pass1234",
   })
-  assert r.status_code in (200, 201)
+  assert r.status_code == 201
+
   return {
     "email": "test@test.com",
-    "password": "pass1234",
+    "password": "pass1234"
   }
+  
+@pytest.fixture()
+def access_token(client, registered_user):
+  res = client.post("/auth/login", json=registered_user)
+  assert res.status_code == 200
+  return res.get_json()["access_token"]
+
+@pytest.fixture()
+def auth_client(client, access_token):
+  client.environ_base["HTTP_AUTHORIZATION"] = f"Bearer {access_token}"
+  return client

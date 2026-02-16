@@ -137,7 +137,6 @@ def edit_list(list_id):
 
 ################################ LIST ITEM RESOURCES ################################
 
-# Add a list item to a list
 @blp.route("/<int:list_id>/items", methods=["POST"])
 @jwt_required()
 def create_list_item(list_id):

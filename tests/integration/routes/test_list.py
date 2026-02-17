@@ -128,4 +128,69 @@ def test_create_list_with_duplicate_name(auth_client):
   
 ################################ TEST LIST RESOURCES BY ID ################################
 
+## GET ##
 
+def test_get_list_by_id(auth_client):
+  created = auth_client.post("/lists/", json={
+    "name": "Temp List",
+    "visibility": "PUBLIC",
+  })
+  assert created.status_code == 201
+  list_id = created.get_json()["id"]
+
+  r = auth_client.get(f"/lists/{list_id}")
+  assert r.status_code == 200
+
+  
+def test_get_list_by_id_unauthorized(client, access_token):
+  created = client.post("/lists/", json={
+    "name": "Temp List",
+    "visibility": "PUBLIC",
+  }, headers={"Authorization": f"Bearer {access_token}"})
+  assert created.status_code == 201
+  list_id = created.get_json()["id"]
+
+  r = client.get(f"/lists/{list_id}")
+  assert r.status_code == 401
+
+  
+def test_get_list_that_does_not_exist(auth_client):
+  r = auth_client.get("/lists/99999999")
+  assert r.status_code == 404
+  
+## DELETE ##
+
+def test_delete_list_by_id(auth_client):
+  created = auth_client.post("/lists/", json={
+    "name": "Temp List",
+    "visibility": "PUBLIC",
+  })
+
+  assert created.status_code == 201
+  
+  list_id = created.get_json()["id"]
+  
+  deleted = auth_client.delete(f"/lists/{list_id}")
+  assert deleted.status_code == 204
+
+def test_delete_list_by_id_unauthorized(client, access_token):
+  created = client.post("/lists/", json={
+    "name": "Temp List",
+    "visibility": "PUBLIC",
+  }, headers={"Authorization": f"Bearer {access_token}"})
+  
+  assert created.status_code == 201
+  list_id = created.get_json()["id"]
+
+  deleted = client.delete(f"/lists/{list_id}")
+  assert deleted.status_code == 401
+
+def test_delete_list_that_does_not_exist(auth_client):
+  deleted = auth_client.delete("/lists/999999999999")
+  assert deleted.status_code == 404
+  
+## PUT ##
+
+
+  
+  

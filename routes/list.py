@@ -215,27 +215,3 @@ def delete_list_item(list_id, item_id):
   
   return "", 204
   
-# TODO Not needed for now 
-# @blp.route("/<int:list_id>/items/<int:list_item>", methods=["PUT"])
-# def edit_item(list_id, item_id):
-#   user_id = return_jwt_identity()
-  
-#   req = request.get_json()
-#   if not req:
-#     return BadRequest("Request body must be JSON")
-  
-#   item_data = list_item_schema.load(req)
-  
-#   lst = ListModel.query.filter_by(user_id=user_id, id=list_id).first()
-#   if not lst:
-#     raise NotFound("List not found")
-  
-#   list_item = ListItemModel.query.filter_by(list_id=lst.id, id=item_id).first()
-#   if not list_item:
-#     raise NotFound("This item was not found")
-  
-#   list_item.movie_id = item_data["movie_id"]
-  
-#   db.session.commit()
-  
-#   return 

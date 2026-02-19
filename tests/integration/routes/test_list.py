@@ -191,6 +191,9 @@ def test_delete_list_that_does_not_exist(auth_client):
   
 ## PUT ##
 
+# TODO write list PUT tests
 
-  
-  
+
+################################ TEST LIST RESOURCES BY ID ################################
+
+# TODO write list item tests

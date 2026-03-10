@@ -1,0 +1,25 @@
+/* Button.css */
+.primary-btn {
+  background-color: #e50914;
+  color: #ffffff;
+  border: none;
+  padding: 0.6rem 1.4rem;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.primary-btn:hover {
+  background-color: #b20710;
+}
+
+.primary-btn a {
+  color: inherit;
+  text-decoration: none;
+}

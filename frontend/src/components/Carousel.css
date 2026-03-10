@@ -1,0 +1,111 @@
+.carousel {
+  position: relative;
+  background-color: #5e0c0c;
+  max-width: 80rem;
+  margin: 10rem auto;
+  border-radius: 1rem;
+  padding: 3rem;
+  padding-left: 9rem;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 8rem;
+  padding-right: 5rem;
+}
+
+.carousel-overview {
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 1rem;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 0.5rem;
+}
+
+.carousel-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.carousel-poster {
+  height: 20rem;
+  border-radius: 0.8rem;
+  transform: scale(1.5);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.4);
+}
+
+.carousel-read-more {
+  font-weight: 500;
+  color: #dfcece;
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  align-self: flex-end;
+  margin-top: auto;
+}
+
+.carousel-btn {
+  position: absolute;
+  color: #fff;
+  border: none;
+  height: 4rem;
+  width: 4rem;
+  border-radius: 50%;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.chevron-icon {
+  height: 2.2rem;
+  width: 2.2rem;
+  stroke: #5e0c0c;
+}
+
+.carousel-btn-right {
+  right: 0;
+  top: 50%;
+  transform: translate(50%, -50%);
+}
+
+.carousel-btn-left {
+  left: 0;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.carousel-details {
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+}
+
+.carousel-dots {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, 3.2rem);
+
+  display: flex;
+  gap: 1rem;
+}
+
+.dot {
+  height: 1.5rem;
+  width: 1.5rem;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 2px solid #5e0c0c;
+  cursor: pointer;
+}
+
+.dot-fill {
+  background-color: #5e0c0c;
+}

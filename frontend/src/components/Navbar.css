@@ -1,0 +1,86 @@
+.navbar-wrapper {
+  font-family: "Inter", sans-serif;
+  display: flex;
+  align-items: center;
+  padding: 2rem 6rem;
+}
+
+.navbar-right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.navbar-links {
+  display: flex;
+  list-style: none;
+  margin-left: auto;
+  gap: 2rem;
+}
+
+.navbar-links a,
+.navbar-logo a {
+  text-decoration: none;
+  color: #e50914;
+}
+
+.navbar-logo {
+  font-weight: 800;
+  font-size: 3rem;
+  letter-spacing: -0.2rem;
+  color: #e50914;
+}
+
+.navbar-links a {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #fff;
+  align-items: center;
+}
+
+.navbar-links a:hover {
+  color: #e50914;
+  border-bottom: 3px solid #e50914;
+  transition: 0.3s;
+}
+
+.navbar-header {
+  padding: 1.5rem;
+  background-color: #000000;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  transition: background 0.3s ease;
+}
+
+.nav-link.active {
+  color: #e50914;
+  border-bottom: 3px solid #e50914;
+}
+
+.search-icon {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+
+  color: #fff;
+}
+
+.search-icon:hover {
+  color: #e50914;
+}
+
+.search-icon:focus {
+  outline: none;
+}
+
+.search-icon svg {
+  width: 2rem;
+  height: 2rem;
+}

@@ -1,0 +1,31 @@
+.trending-section {
+  padding: 6rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+
+  background: linear-gradient(#501113, #000000);
+  /* background: linear-gradient(
+  to bottom,
+  #5e0c0c,
+  #3a0707
+); */
+  align-items: center;
+}
+
+.trending-heading {
+  margin: 3rem 0;
+  color: #fff;
+  font-size: clamp(2rem, calc(1.455rem + 0.455vw), 3rem);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-align: center;
+  font-family: "Inter", sans-serif;
+}
+
+.trending-cards {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}

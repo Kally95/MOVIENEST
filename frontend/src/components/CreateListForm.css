@@ -1,0 +1,49 @@
+.create-list-form-actions {
+  margin-bottom: 1rem;
+}
+.create-list-form-actions {
+  margin: 1rem 0;
+  position: relative;
+  width: 100%;
+}
+
+.visibility-select {
+  width: 100%;
+  padding: 0.7rem 2.5rem 0.7rem 0.9rem;
+  font-size: 0.95rem;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  background-color: #ffffff;
+  color: #111827;
+  cursor: pointer;
+
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.visibility-select:hover {
+  border-color: #9ca3af;
+}
+
+.visibility-select:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+}
+
+/* Custom arrow */
+.create-list-form-actions::after {
+  content: "▾";
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  font-size: 0.9rem;
+  color: #6b7280;
+}

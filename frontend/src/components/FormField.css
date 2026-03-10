@@ -1,0 +1,24 @@
+.form-field-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.form-field-wrapper label {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #ccc;
+}
+
+.form-field-wrapper input {
+  padding: 0.6rem 0.8rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1.25rem;
+}
+
+.form-field-wrapper input:focus {
+  outline: none;
+  border-color: #e50914;
+}

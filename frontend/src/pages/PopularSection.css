@@ -1,0 +1,57 @@
+.popular-movies-section {
+  position: relative;
+  overflow: hidden;
+
+  padding: 6rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+}
+
+.popular-movies-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("../assets/collage.jpg") center/cover no-repeat;
+  transform: scale(1.12);
+  filter: blur(12px);
+  z-index: -2;
+}
+
+.popular-movies-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: -1;
+}
+
+/* Maybe move these to a centralised place */
+.section-title {
+  margin: 0;
+  color: #fff;
+
+  font-size: clamp(2.2rem, 1.6rem + 1vw, 3rem);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  position: relative;
+  padding-bottom: 1.2rem;
+
+  text-align: center;
+}
+
+.section-title::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 8rem;
+  height: 4px;
+  border-radius: 999px;
+  background: #e50914;
+  opacity: 0.9;
+}

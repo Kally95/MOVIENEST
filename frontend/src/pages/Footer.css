@@ -1,0 +1,41 @@
+.footer {
+  padding: 8rem 2rem 5rem;
+  background: linear-gradient(
+    90deg,
+    rgba(12, 3, 3, 1) 0%,
+    rgba(40, 8, 9, 1) 100%
+  );
+  color: #fff;
+}
+
+.footer-title {
+  font-size: 4rem;
+  position: relative;
+  display: inline-block;
+}
+
+.footer-inner {
+  max-width: 70rem;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+
+  text-align: center;
+  font-size: 1.8rem;
+}
+
+.footer-text {
+  line-height: 1.6;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 2rem;
+}
+
+.footer-socials a {
+  color: #fff;
+}

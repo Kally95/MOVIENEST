@@ -1,0 +1,28 @@
+.form-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.4rem;
+  margin-top: 0.75rem;
+}
+
+.form-errors {
+  color: #d10a14;
+  font-size: 0.95rem;
+  margin-bottom: 0.75rem;
+}
+
+.form-alt-action {
+  margin-top: 1.5rem;
+  color: #ccc;
+}
+
+.form-alt-action a {
+  color: #ff4d4d;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.form-alt-action a:hover {
+  text-decoration: underline;
+}

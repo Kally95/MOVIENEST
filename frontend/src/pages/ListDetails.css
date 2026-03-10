@@ -1,0 +1,49 @@
+.list-details-page {
+  width: 100%;
+  padding: 2rem 3rem 3rem;
+  box-sizing: border-box;
+}
+
+.list-details-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 4rem;
+  align-items: flex-start;
+}
+
+.movie-details-card {
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  flex: 0 0 220px;
+}
+
+.movie-details-card__poster {
+  width: 220px;
+  height: 330px;
+  object-fit: cover;
+  border-radius: 14px;
+  display: block;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.movie-details-card:hover .movie-details-card__poster {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.55);
+}
+
+.movie-details-card__title {
+  margin-top: 0.85rem;
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.35;
+  text-align: center;
+  max-width: 220px;
+}

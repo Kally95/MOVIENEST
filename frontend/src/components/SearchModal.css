@@ -1,0 +1,68 @@
+.search-modal-container {
+  width: min(720px, 90vw);
+
+  border-radius: 20px;
+  padding: 24px;
+  background: rgba(20, 20, 20, 0.6);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  max-height: min(80vh, 720px);
+  display: flex;
+  flex-direction: column;
+}
+
+.search-modal-input {
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 999px;
+  width: 100%;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.92);
+  color: #000;
+  font-weight: 600;
+  outline: none;
+  margin-top: 3rem;
+}
+
+.search-modal-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem;
+}
+
+.search-results {
+  margin-top: 14px;
+  overflow: auto;
+  flex: 1;
+}
+
+.modal-dropdown-results {
+  display: flex;
+  flex-direction: column;
+  backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.92);
+  width: 100%;
+  border-radius: 1rem;
+  margin-top: 0.2rem;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  max-height: 50vh;
+}
+
+.search-modal-container,
+.modal-dropdown-results {
+  overscroll-behavior: contain;
+}
+
+.modal-dropdown-empty,
+.modal-dropdown-error,
+.modal-dropdown-pending {
+  display: flex;
+  align-items: center;
+  font-size: clamp(0.8rem, 1vw, 1.6rem);
+  padding: 1rem;
+}

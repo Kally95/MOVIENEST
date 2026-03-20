@@ -1,12 +1,8 @@
-import { getAuthHeaders } from "./authHeaders";
+import { authFetch } from "./authFetch";
 
 export async function createList(list) {
-  const res = await fetch("/api/lists/", {
+  const res = await authFetch("/api/lists/", {
     method: "POST",
-    headers: {
-      ...getAuthHeaders(),
-      "Content-Type": "application/json",
-    },
     body: JSON.stringify(list),
   });
 

@@ -113,7 +113,7 @@ export default function ListCard({ list, listItems = [] }) {
 
       <div className="list-card__footer">
         <div className="list-card__actions">
-          {list.length === 0 ? (
+          {listItems.length > 0 ? (
             <Link to={`/lists/${list.id}`} state={{ list_name: list.name }}>
               <Button>View List</Button>
             </Link>

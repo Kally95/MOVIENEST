@@ -36,7 +36,7 @@ export default function MovieDetails() {
     (list) => list.list_type === "FAVOURITES",
   );
   const favouritesListId = favouritesList?.id;
-  4;
+
   const favouritesItemsQuery = useQuery({
     queryKey: ["listItems", favouritesListId],
     queryFn: () => getListItems(favouritesListId),
@@ -241,18 +241,18 @@ export default function MovieDetails() {
                 </div>
               )}
             </div>
-
-            {key && (
-              <div className="details-trailer">
-                <iframe
-                  src={`https://www.youtube.com/embed/${key}`}
-                  allowFullScreen
-                  title={`${movieQuery.data?.title} trailer`}
-                />
-              </div>
-            )}
           </div>
         </div>
+
+        {key && (
+          <div className="details-trailer">
+            <iframe
+              src={`https://www.youtube.com/embed/${key}`}
+              allowFullScreen
+              title={`${movieQuery.data?.title} trailer`}
+            />
+          </div>
+        )}
       </div>
 
       <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>

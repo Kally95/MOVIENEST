@@ -1,8 +1,8 @@
-import { getAuthHeaders } from "./authHeaders";
+import { authFetch } from "./authFetch.js";
 
 export async function getListById(listId) {
-  const res = await fetch(`/api/lists/${listId}`, {
-    headers: getAuthHeaders(),
+  const res = await authFetch(`/api/lists/${listId}`, {
+    method: "GET",
   });
 
   if (!res.ok) {

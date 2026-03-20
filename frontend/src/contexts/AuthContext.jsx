@@ -12,8 +12,9 @@ const requireEmailPassword = (credentials, message) => {
 
 export default function AuthProvider({ children }) {
   const [isAuthed, setIsAuthed] = useState(() => {
-    return localStorage.getItem("mn_isAuthed") === "true";
+    return !!localStorage.getItem("mn_accessToken");
   });
+
   const [userEmail, setUserEmail] = useState("");
 
   const [authErrors, setAuthErrors] = useState([]);
@@ -102,19 +103,28 @@ export default function AuthProvider({ children }) {
         headers: getAuthHeaders(),
       });
 
-      const data = await res.json();
-
-      if (!res.ok) {
-        return { ok: false, ...data };
+      let data = {};
+      try {
+        data = await res.json();
+      } catch {
+        data = {};
       }
 
-      setIsAuthed(false);
-      localStorage.removeItem("mn_accessToken");
-      localStorage.removeItem("mn_isAuthed");
+      if (!res.ok) {
+        console.warn("Logout request failed:", res.status, data);
+      }
 
       return { ok: true, ...data };
-    } catch {
-      return { ok: false };
+    } catch (error) {
+      console.error("Logout request error:", error);
+      return { ok: true };
+    } finally {
+      setIsAuthed(false);
+      setUserEmail("");
+      localStorage.removeItem("mn_accessToken");
+      localStorage.removeItem("mn_refreshToken");
+      localStorage.removeItem("mn_isAuthed");
+      localStorage.removeItem("mn_userEmail");
     }
   };
 

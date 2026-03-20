@@ -1,9 +1,8 @@
-import { getAuthHeaders } from "./authHeaders";
+import { authFetch } from "./authFetch";
 
 export async function getLists() {
-  const res = await fetch("/api/lists/", {
+  const res = await authFetch("/api/lists/", {
     method: "GET",
-    headers: getAuthHeaders(),
   });
 
   if (!res.ok) {

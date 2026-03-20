@@ -1,9 +1,8 @@
-import { getAuthHeaders } from "./authHeaders";
+import { authFetch } from "./authFetch.js";
 
 export async function removeMovieFromList(itemId, listId) {
-  const res = await fetch(`/api/lists/${listId}/items/${itemId}`, {
+  const res = await authFetch(`/api/lists/${listId}/items/${itemId}`, {
     method: "DELETE",
-    headers: getAuthHeaders(),
   });
 
   if (!res.ok) {
